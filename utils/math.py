@@ -14,11 +14,12 @@ class Vector2(object):
     @staticmethod
     def dot(v1, v2):
         return np.dot(v1.vec, v2.vec)
+    
+    def dot(self, v1):
+        return np.dot(self.vec, v1.vec)
 
     def __sub__(self, other):
-        result = Vector2()
-        result.vec = self.vec - other.vec
-        return result
+        return self.vec - other.vec
 
 
 class Vector3(object):
@@ -36,10 +37,10 @@ class Vector3(object):
         return np.dot(v1.vec, v2.vec)
 
     def __sub__(self, other):
-        result = Vector3()
-        result.vec = self.vec - other.vec
-        return result
+        return self.vec - other.vec
 
 v1 = Vector2(1, -1)
 v2 = Vector2(1, 1)
 print(Vector2.cross(v1, v2).vec)
+print(v1.dot(v2))
+print(Vector2.dot(v1, v2))
